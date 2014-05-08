@@ -7,7 +7,7 @@ GoogleSpreadsheetsQuery = (filters, callback) ->
     unless query is `undefined`
       locache.remove "blueGuideData"
       data =
-        key: "0Alw0s_pQVmyXdEwxTjlaTlE3NnU0bl8wZEZxZTVHYnc"
+        key: "0Alw0s_pQVmyXdGdZcUNhaTcyb1c4SjZ4SjkzNWhGNGc"
         tq: query
 
       $.ajax
@@ -45,7 +45,7 @@ GoogleSpreadsheetsQuery = (filters, callback) ->
   @parse = (response) ->
     data = (if @data isnt `undefined` then @data else locache.get("blueGuideData"))
     status = (if data then true else false)
-    startCol = @colId2Int(@filters.fields["Safety-Net Type"].startCol)
+    startCol = @colId2Int(@filters.fields["Tipos de asistencia de último recurso"].startCol)
     data = (if data then data else [])
     fields = undefined
     if response.table?

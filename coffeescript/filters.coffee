@@ -15,14 +15,14 @@ Filters = ->
     ich.accordion(sections: [
       id: "tabs"
       open: "in"
-      title: "Type of Care"
+      title: "Tipos de asistencia médica"
       content: ich.tabs(
         tabs: @tabs
       , true)
     ,
       id: "advanced"
       collapsed: "collapsed"
-      title: "Advanced Filters"
+      title: "Filtros para búsqueda avanzada"
       content: filters
     ]).appendTo selector
 
@@ -62,8 +62,8 @@ Filters = ->
     i = 0
     values = {}
     # Add services (from tabs)
-    if activeTab? and activeTab isnt "All Types"
-      values["Services Provided"] = _.filter(@tabs, (tab) ->
+    if activeTab? and activeTab isnt "Todo tipo"
+      values["Servicios ofrecidos"] = _.filter(@tabs, (tab) ->
         tab.title is activeTab
       )[0].services
     
@@ -79,102 +79,103 @@ Filters = ->
     query.constructActive values
 
   @tabs = [
-    title: "All Types"
+    title: "Todo tipo"
     color: "orange"
     icon: "icon-alltypes"
     services: []
   ,
-    title: "General Health"
+    title: "Asistencia Médica General"
     color: "green"
     icon: "icon-generalhealth"
-    services: ["Case Management", "Primary Health Care", "Women's Health", "Children's Health", "Adolescent Care", "Immunizations", "Chronic Disease Mgmt", "STI Testing, Treatment, & Prevention", "HIV/AIDS Treatment & Care", "Health Care for Military Veterans", "LGBT Health Services"]
+    services: ["Administración de casos", "Atención Primaria", "Salud de la mujer", "Salud del niño", "Atención para adolecentes", "Inmunizaciones", "Gestión de enfermedades crónicas", "Pruebas Tratamiento y Prevención de ITS", "Tratamiento y cuidados para SIDA/VIH", "Atención médica para veteranos de las fuerzas armadas", "Servicios de salud para personas LGBT"]
   ,
-    title: "Mental / Behavioral"
+    title: "Mental / Cognitivo-conductual"
     color: "purple"
     icon: "icon-alltypes"
-    services: ["Substance Abuse Treatment", "Mental/Behavioral Health Care"]
+    services: ["Tratamiento para el abuso de estupefacientes y alcohol", "Atención para la salud mental/conductal"]
   ,
-    title: "Access Assistance"
+    title: "Asistencia para obtener acceso"
     color: "red"
     icon: "icon-mentalbehavioural"
-    services: ["Medicaid Enrollment Assistance", "Connect for Health Colorado Enrollment Assistance"]
+    services: ["Ayuda con inscripción en Medicaid", "Ayuda con inscripción en Connect for Health Colorado"]
   ,
     title: "Oral / Dental"
     color: "blue"
     icon: "icon-dentaloral"
-    services: ["Dental Care"]
+    services: ["Atención Dental"]
   ,
-    title: "Disability & Elder Care"
+    title: "Discapacidad y cuidado de ancianos"
     color: "darkblue"
     icon: "icon-disability"
-    services: ["Health Care for Disabilities or Special Needs", "Adult Day Services", "Respite Care"]
+    services: ["Atención médica para personas con discapacidades o necesidades especiales", "Servicios diurnos para adultos", "Servicios auxiliares de apoyo familiar"]
   ,
-    title: "Other"
+    title: "Otros tipos"
     color: "cadetblue"
     icon: "icon-other"
-    services: ["Vision Care", "Other"]
+    services: ["Atención para los ojos", "Otro"]
   ]
   @fields =
-    "Safety-Net Type":
+    "Tipos de asistencia de último recurso":
       type: "select"
-      msg: "Select type of care"
+      msg: "Seleccionar"
       startCol: "Y"
-      options: ["Community Health Center (CHC) / Federally Qualified Health Center (FQHC)","Community-funded Safety Net Clinic (CSNC)","Local Public Health Department and Public Nursing Services","Rural Health Clinics (RHC)","School-based Health Center (SBHC)","Human/Social Services Agency","Certified Medicaid/CHP+ Application Assistance Site","Connect for Health Colorado Assistance Site","WIC Clinic Site","HCP Pediatric Specialty Clinic","Planned Parenthood Clinic","Veteran's Association Health Center","Community Mental Health Clinic","Community-based Dental Clinic","Community-based Vision Clinic","Critical Access Hospital","Emergency Department","CICP Provider","Community Centered Boards (CCB)","Residency Program","Voluntary Health Organization ","Migrant Health Center","Refugee Health Site","Certified Center for Independent Living","AIDS Service Organization (ASO)","Other Community-based Clinic","Other Dental Clinic","Other Mental Health Clinic","Other Community-based Organization"]
+      options: ["Centro de Salud Comunitario (CHC) / Centro de Salud Aprobado por el Gobierno Federal (FQHC) ","Clínica de Último Recurso Financiada por la Comunidad (CSNC)","Departamento de Salud Pública y Servicios de Enfermería Pública Locales","Clínicas Médicas Rurales (RHC)","Centro de Salud Escolar (SBHC)","Agencia de Servicios Humanos/Sociales","Local Certificado para Asistir con Solicitudes de Medicaid/CHP+","Local de Asistencia para Connect for Health Colorado ","Local de Clínica WIC","Clínica Especializada en Pediatría del programa HCP","Clínica de Planificación Familiar Planned Parenthood","Centro de Salud de la Asociación de Veteranos","Clínica Comunitaria de Salud Mental","Clínica Dental Comunitaria","Clínica Oculista Comunitaria","Hospital de Acceso Crítico","Departamento de Urgencias","Proveedor del Programa de Atención para Indigentes de Colorado (CICP)","Junta de Enfoque Comunal (CCB)","Programa Residencial","Organización Sanitaria de Voluntarios","Centro de Salud para Trabajadores Migratorios","Local de Servicios de Salud para Refugiados","Centro para la Vida Autónoma en el Hogar","Organización de Servicios para el SIDA (ASO)","Otras clínicas comunitarias","Otra clínica dental","Otra organización basada en la comunidad"]
 
-    "Services Provided":
+    "Servicios ofrecidos":
       type: "select"
-      msg: "Select services"
+      msg: "Seleccionar"
       startCol: "BB"
-      options: ["Primary Health Care", "Dental Care", "Vision Care", "Mental/Behavioral Health Care", "Women's Health", "Children's Health", "Adolescent Care", "Adult Day Services", "Respite Care", "Substance Abuse Treatment", "Case Management", "Chronic Disease Mgmt", "HIV/AIDS Treatment & Care", "STI Testing, Treatment, & Prevention", "Health Care for Military Veterans", "Health Care for Disabilities or Special Needs", "LGBT Health Services", "Immunizations", "Medicaid Enrollment Assistance", "Connect for Health Colorado Enrollment Assistance", "Other"]
+      options: ["Atención Primaria", "Atención Dental", "Atención para los ojos", "Atención para la salud mental/conductal", "Salud de la mujer", "Salud del niño", "Atención para adolecentes", "Servicios diurnos para adultos", "Servicios auxiliares de apoyo familiar", "Tratamiento para el abuso de estupefacientes y alcohol", "Administración de casos", "Gestión de enfermedades crónicas", "Tratamiento y cuidados para SIDA/VIH", "Pruebas Tratamiento y Prevención de ITS", "Atención médica para veteranos de las fuerzas armadas", "Atención médica para veteranos de las fuerzas armadas", "Servicios de salud para personas LGBT", "Inmunizaciones", "Ayuda con inscripción en Medicaid", "Ayuda con inscripción en Connect for Health Colorado", "Otro"]
 
-    "Age Groups Served":
+    "Categorías de edades atendidas":
       type: "select"
-      msg: "Select age groups"
+      msg: "Seleccionar"
       startCol: "BW"
-      options: ["Infants (0-3)", "Children (3+)", "Teens (13+)", "Adults (18+)", "Elderly (65+)"]
+      options: ["Recién nacidos (0-3)", "Niños (3+)", "Adolescentes (13+)", "Adultos (18+)", "Personas de la tercera edad (65+)"]
 
-    "Works With":
+    "Sectores de la población atendidos":
       label: "Populations Served"
       type: "select"
-      msg: "Select a specialization"
+      msg: "Seleccionar"
       startCol: "CB"
-      options: ["Migrant Farmworkers", "Homeless", "LGBT", "Refugee", "American Indian", "Military Veterans", "HIV/AIDS", "Disability & Special Needs", "Rural", "Other"]
+      options: ["Trabajadores agrícolas migrantes", "Personas sin hogar", "LGBT", "Refugiados", "Indígenas norteamericanos", "Veteranos de las fuerzas armadas", "VIH/SIDA", "Discapacitados y personas con necesidades especiales", "Poblaciones rurales", "Otros"]
 
-    "Languages Spoken":
+    "Idiomas hablados":
       type: "select"
-      msg: "Select specific populations"
+      msg: "Seleccionar"
       startCol: "CL"
-      options: ["Spanish", "German", "French", "Vietnamese", "Korean", "Chinese", "Arabic", "Phone Translation Services", "Other"]
+      options: ["Español", "Alemán", "Francés", "Vietnamita", "Coreano", "Chino", "Árabe", "Servicios de Interpretación Telefónica", "Otros"]
 
-    "Payment Assistance & Special Accommodations":
+    "Subsidio económico y arreglos especiales":
       type: "select"
-      msg: "Select one"
+      msg: "Seleccionar"
       startCol: "CU"
-      options: ["Sliding Scale for Primary Care", "Cash/Time of Service Discount", "CICP Services", "Medicaid/CHP+ Accepted", "Other Discount Services", "Open Late / Weekends", "Other ?"]
+      options: ["Escala móvil de tarifas para atención primaria", "Descuento por pagar en efectivo/a la hora de entrega de servicios", "Servicios del Programa de Atención para Indigentes de Colorado (CICP)", "Se acepta Medicaid/CHP+", "Otros servicios de descuentos", "Abierto tarde / fines de semana", "¿Otros?"]
 
   @displayFields = [
-    label: "Hours"
+    label: "Horas"
     col: "Hours"
     primary: true
   ,
-    label: "Services"
-    col: "Services Provided"
+    label: "Servicios"
+    col: "Servicios ofrecidos"
     primary: true
   ,
-    label: "Ages Served"
-    col: "Age Groups Served"
+    label: "Edades atendidas"
+    col: "Categorías de edades atendidas"
   ,
-    label: "Open to"
+    label: "Abierto a"
     col: "Area or Population Served"
   ,
-    label: "Works With"
-    col: "Works With"
+    label: "Población atendidos"
+    col: "Sectores de la población atendidos"
   ,
-    label: "Languages"
-    col: "Languages Spoken"
+    label: "Idiomas"
+    col: "Idiomas hablados"
   ,
-    label: "Sponsor"
+    label: "Patrocinador"
     col: "Sponsor Name"
   ]
+
 
   return @

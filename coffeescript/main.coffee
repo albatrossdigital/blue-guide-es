@@ -1,6 +1,6 @@
 query = undefined
 tab = undefined
-rev = 0.16
+rev = 0.17
 activeTab = undefined
 window.onload = ->
 
@@ -19,7 +19,7 @@ window.onload = ->
   # Add filters
   filters = new Filters()
   data = locache.get("blueGuideData")
-  #data = null
+  data = null
   locache.set("blueGuideData", data)
   filters.draw "#filters", "#showFilters"
 
@@ -39,7 +39,7 @@ window.onload = ->
     jQuery.getJSON "json/data.json?rev="+rev, {}, (data) ->
       locache.set "blueGuideData", data
       query = new JsonQuery "body", data
-  
+    
   # Manually set the map height with JS (couldn't make this work with CSS)
   if window.responsive isnt "mobile" then $('.row-fluid>div').height $(window).height() - $('.navbar').height()
 
@@ -55,7 +55,7 @@ window.onload = ->
     geosearch:
       provider: "Google"
       settings:
-        searchLabel: "Search for address..."
+        searchLabel: "Búsqueda de dirección..."
         zoomLevel: 13 
         showMarker: false
         open: true
@@ -79,7 +79,7 @@ window.onload = ->
     locationUpdated(new L.LatLng(e.Location.Y, e.Location.X), e.Location.Label)
  
   map.map.on "locationfound", (e) ->
-    locationUpdated(e.latlng, "your location")
+    locationUpdated(e.latlng, "su ubicación")
 
   map.map.on "dragend", ->
     if !map.lastBounds? or !query.withinBounds(map.map.getCenter(), map.markerBounds(map.lastBounds, 1))

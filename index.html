@@ -80,7 +80,7 @@
           <a class="brand" href=""><img src="images/logo.png" width="197" height="44" alt="The Blue Guide logo" /></a>
 
           <div class="links">
-            <button id="showFilters" class="pull-right btn btn-normal"><i class="icon-cog"></i><span> Show Filters</span></button>
+            <button id="showFilters" class="pull-right btn btn-normal"><i class="icon-cog"></i><span> Mostrar filtros </span></button>
 
             <button id="showLocate" class="no-desktop pull-right btn btn-normal"><i class="icon-search"></i></button>
 
@@ -136,24 +136,20 @@
 <script id="about" type="text/html">
   <div id="mapOverlay"></div>
   <div id="about">
-    <h2>Find A Provider</h2>
-    <p>Search Nearby - or - Select an Option from the menu to get started.<p>
+    <h2>Encuentre un profesional de la salud</h2>
+    <p>Busque al más cercano – o – seleccione una opción en el menú para comenzar.<p>
     <div class="summary">
-      <p class="no-mobile">The purpose of this guide is to help uninsured individuals and families, health care providers,
-      and community organizations locate the healthcare options and resources that are available for
-      uninsured and underinsured Coloradans. This online guide provides information about your local
-      health care providers and health care access assistance sites that can help Coloradans apply for
-      and enroll in Medicaid, CHP+, and private insurance through the new online insurance marketplace,
-      Connect for Health Colorado.</p>
-      <p class="no-mobile">Easily access this guide on your mobile device with our apps:</p>
+      <p class="no-mobile">El objetivo de esta guía es ayudar a individuos y familias sin seguro, a profesionales de la salud, y a organizaciones de la comunidad a encontrar las opciones de asistencia médica y los recursos disponibles a los habitantes de Colorado, con o sin seguro. Esta guía por internet ofrece información sobre los profesionales de la salud locales y los centros de asistencia al acceso a servicios de salud que pueden ayudar a los habitantes de Colorado a solicitar e inscribirse en programas como Medicare, CHP+, y seguros médicos del sector privado, a través del nuevo mercado digital para seguros médicos: Connect for Health Colorado.</p>
+      <!--<p class="no-mobile">Easily access this guide on your mobile device with our apps:</p>
       <p class="no-mobile app-icons">
         <a href="https://itunes.apple.com/us/app/cchi-blue-guide/id718564884" target="_blank"><img src="/images/apple_store.png" alt="Download on the App Store" width="140" height="42" /></a>
         &nbsp;&nbsp;
         <a href="https://play.google.com/store/apps/details?id=com.albatrossdigital.blueguide" target="_blank"><img src="/images/google_play.png" alt="Get it on Google Play" width="119" height="41" /></a>
+      </p>-->
       </p>
-      </p>
-      <p class="no-mobile">This guide was prepared by the <a class="cchi" href="http://www.cohealthinitiative.org/" target="_blank">Colorado Consumer Health Initiative</a> with support from the
-      <a class="caring" href="http://www.caringforcolorado.org/" target="_blank">Caring for Colorado Foundation</a>, <a class="piton" href="http://www.piton.org/" target="_blank">the Piton Foundation</a>, and <a class="connect" href="http://www.connectforhealthco.com/" target="_blank">Connect for Health Colorado.</a> </p>
+
+      <p class="no-mobile">Esta guía fue preparada por el <a class="cchi" href="http://www.cohealthinitiative.org/" target="_blank">Colorado Consumer Health Initiative</a> con el apoyo de la fundación 
+      <a class="caring" href="http://www.caringforcolorado.org/" target="_blank">fundación Caring for Colorado</a>, <a class="piton" href="http://www.piton.org/" target="_blank">la fundación Piton</a>, y de <a class="connect" href="http://www.connectforhealthco.com/" target="_blank">Connect for Health Colorado.</a> </p>
       <p class="no-desktop supported">Supported by:</p>
       <ul class="logos">
         <li><a class="cchi" href="http://www.cohealthinitiative.org/" target="_blank" title="Colorado Consumer Health Initiative">Colorado Consumer Health Initiative</a></li>
@@ -217,39 +213,39 @@
 
 <script id="submitBtns" type="text/html">
   <div class="form-inline submit-btns">
-    <button type="submit" class="btn btn-normal span7">Apply Filter</button>
+    <button type="submit" class="btn btn-normal span7">Aplicar filtro</button>
     <button type="submit" class="btn btn-dark span4 btn-reset" id="reset">Reset</button>
   </form>
 </script>
 
 <script id="noResults" type="text/html">
   <div>
-    <h3>Sorry</h3>
-    We could not find any clinics near you.  Try changing your filters
-    or zooming out.
+    <h3>Lo siento</h3>
+    No hemos podido encontrar clínicas cerca de usted. Intente cambiar sus filtros 
+    o reducir el zoom.
   </div>
 </script>
 
 <script id="resultSummaryMatching" type="text/html">
   <div class="result-summary">
-    {{num}} matching results. Zoom out to see more.
+    {{num}} emparejan resultados. Alejar para ver más.
   </div>
 </script>
 
 <script id="resultSummary" type="text/html">
   <div class="result-summary">
-    Displaying the {{num}} closest clinics to {{location}} matching your filters.
-    <a href="#" id="resultsShow" rel="100000">See all {{total}}</a>.
+    Viendo el {{num}} clínicas más cercanas a {{location}} coincide con tu filtro.
+    <a href="#" id="resultsShow" rel="100000">Ver todos {{total}}</a>.
   </div>
 </script>
 
 <script id="resultSummaryAll" type="text/html">
-  <div class="result-summary">Showing {{start}} - {{end}} of {{total}} clinics.</div>
+  <div class="result-summary">Mostrando {{start}} - {{end}} de {{total}} clínicas.</div>
 </script>
 
 <script id="pager" type="text/html">
   <div class="pagination" id="{{id}}">
-    <div class="result-summary">Showing {{start}} - {{end}} of {{total}} clinics.</div>
+    <div class="result-summary">Mostrando {{start}} - {{end}} de {{total}} clínicas.</div>
     <ul></ul>
   </div>
 </script>
@@ -263,12 +259,12 @@
     {{>marker}}
     <button type="button" class="close not-primary">&times;</button>
     <div class="summary">
-      <h3><a href="#">{{Clinic Name}} <span> ({{distance}} miles)</a></span></h3>
+      <h3><a href="#">{{Clinic Name}} <span> ({{distance}} millas)</a></span></h3>
       <p>
         {{Address Line 1}}, {{City}}, {{State}}<br/>
-        {{Phone Number}} <a href="{{Website}}" target="_blank">View website</a>
+        {{Phone Number}} <a href="{{Website}}" target="_blank">Ver el sitio web</a>
       </p>
-      <button class="btn btn-normal not-primary btn-directions" rel="{{Latitude}},{{Longitude}}"><i class="icon-directions"></i> Get Directions</button>
+      <button class="btn btn-normal not-primary btn-directions" rel="{{Latitude}},{{Longitude}}"><i class="icon-directions"></i> Cómo llegar</button>
     </div>
     <div class="fields">{{{fields}}}</div>
   </div>
@@ -292,13 +288,13 @@
     <h3>{{Clinic Name}}</h3>
     <p>
       {{Full Address}}<br/>
-      {{{Phone Number}}} <a href="{{Website}}" target="_blank">View website</a>
+      {{{Phone Number}}} <a href="{{Website}}" target="_blank">Ver el sitio web</a>
     </p>
     <div class="fields">{{{primaryFields}}}</div>
   </div>
 </script>
 
 <script id="locateBtn" type="text/html">
-  <button class="btn btn-dark leaflet-control leaflet-control-locate" id="geocode"><i class="icon-location"></i>Get my location</button>
+  <button class="btn btn-dark leaflet-control leaflet-control-locate" id="geocode"><i class="icon-location"></i>Ubica donde me encuentro</button>
 </script>
 

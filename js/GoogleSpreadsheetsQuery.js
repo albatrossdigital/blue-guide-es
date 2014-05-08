@@ -11,7 +11,7 @@ GoogleSpreadsheetsQuery = function(filters, callback) {
     if (query !== undefined) {
       locache.remove("blueGuideData");
       data = {
-        key: "0Alw0s_pQVmyXdEwxTjlaTlE3NnU0bl8wZEZxZTVHYnc",
+        key: "0Alw0s_pQVmyXdGdZcUNhaTcyb1c4SjZ4SjkzNWhGNGc",
         tq: query
       };
       return $.ajax({
@@ -54,7 +54,7 @@ GoogleSpreadsheetsQuery = function(filters, callback) {
     var data, fields, startCol, status;
     data = (this.data !== undefined ? this.data : locache.get("blueGuideData"));
     status = (data ? true : false);
-    startCol = this.colId2Int(this.filters.fields["Safety-Net Type"].startCol);
+    startCol = this.colId2Int(this.filters.fields["Tipos de asistencia de último recurso"].startCol);
     data = (data ? data : []);
     fields = void 0;
     if (response.table != null) {

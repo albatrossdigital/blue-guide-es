@@ -4,7 +4,7 @@ query = void 0;
 
 tab = void 0;
 
-rev = 0.16;
+rev = 0.17;
 
 activeTab = void 0;
 
@@ -26,6 +26,7 @@ window.onload = function() {
   MQ.init(queries);
   filters = new Filters();
   data = locache.get("blueGuideData");
+  data = null;
   locache.set("blueGuideData", data);
   filters.draw("#filters", "#showFilters");
   if ((data != null) && (data.rev != null) && data.rev === rev) {
@@ -61,7 +62,7 @@ window.onload = function() {
     geosearch: {
       provider: "Google",
       settings: {
-        searchLabel: "Search for address...",
+        searchLabel: "Búsqueda de dirección...",
         zoomLevel: 13,
         showMarker: false,
         open: true
@@ -85,7 +86,7 @@ window.onload = function() {
     return locationUpdated(new L.LatLng(e.Location.Y, e.Location.X), e.Location.Label);
   });
   map.map.on("locationfound", function(e) {
-    return locationUpdated(e.latlng, "your location");
+    return locationUpdated(e.latlng, "su ubicación");
   });
   map.map.on("dragend", function() {
     if ((map.lastBounds == null) || !query.withinBounds(map.map.getCenter(), map.markerBounds(map.lastBounds, 1))) {
