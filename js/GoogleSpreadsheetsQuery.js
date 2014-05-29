@@ -51,12 +51,13 @@ GoogleSpreadsheetsQuery = function(filters, callback) {
     return this.get("select * where (" + groups.join(") and (") + ")", true);
   };
   this.parse = function(response) {
-    var data, fields, startCol, status;
+    var data, fields, pattern, startCol, status;
     data = (this.data !== undefined ? this.data : locache.get("blueGuideData"));
     status = (data ? true : false);
     startCol = this.colId2Int(this.filters.fields["Tipos de asistencia de último recurso"].startCol);
     data = (data ? data : []);
     fields = void 0;
+    pattern = /Clinic Information|Service Access|Address and Contact Information|Appointment Requirements|SEP Requirements|Safety-Net Type|Services Provided|Age Groups Served|Works With|Languages Spoken|Payment Assistance & Special Accommodations/g;
     if (response.table != null) {
       _.each(response.table.rows, function(cols) {
         var arrRow, row;
@@ -68,7 +69,7 @@ GoogleSpreadsheetsQuery = function(filters, callback) {
           var col, previous, value;
           col = that.colId2Int(response.table.cols[index].id);
           if (col < startCol) {
-            return row[response.table.cols[index].label.replace(/Clinic Information |Service Access |Address and Contact Information |Appointment Requirements |SEP Requirements |Safety-Net Type |Services Provided |Age Groups Served |Works With |Languages Spoken |Payment Assistance & Special Accommodations /g, "")] = item.v;
+            return row[response.table.cols[index].label.replace(pattern, "").trim()] = item.v;
           } else if (item.v !== "") {
             previous = null;
             value = [];
@@ -80,13 +81,16 @@ GoogleSpreadsheetsQuery = function(filters, callback) {
             if (row[previous] == null) {
               row[previous] = [];
             }
-            return row[previous].push(response.table.cols[index].label.replace(previous + " ", ""));
+            return row[previous].push(response.table.cols[index].label.replace(previous + " ", "").replace(pattern, "").trim());
           }
         });
         if (fields === void 0) {
           fields = _.keys(row);
         }
         _.each(row, function(val, key) {
+          if (key === "Website" && val.indexOf("http") === -1 && val !== "N/A") {
+            val = "http://" + val;
+          }
           return arrRow[fields.indexOf(key)] = val;
         });
         if (!status) {

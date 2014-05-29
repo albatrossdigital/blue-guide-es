@@ -48,6 +48,7 @@ GoogleSpreadsheetsQuery = (filters, callback) ->
     startCol = @colId2Int(@filters.fields["Tipos de asistencia de último recurso"].startCol)
     data = (if data then data else [])
     fields = undefined
+    pattern = /Clinic Information|Service Access|Address and Contact Information|Appointment Requirements|SEP Requirements|Safety-Net Type|Services Provided|Age Groups Served|Works With|Languages Spoken|Payment Assistance & Special Accommodations/g
     if response.table?
       
       # Update/set the values
@@ -57,7 +58,9 @@ GoogleSpreadsheetsQuery = (filters, callback) ->
         _.each cols.c, (item, index) ->
           col = that.colId2Int(response.table.cols[index].id)
           if col < startCol
-            row[response.table.cols[index].label.replace(/Clinic Information |Service Access |Address and Contact Information |Appointment Requirements |SEP Requirements |Safety-Net Type |Services Provided |Age Groups Served |Works With |Languages Spoken |Payment Assistance & Special Accommodations /g, "")] = item.v
+            #if (typeof item.v is "string") then item.v = item.v.replace(pattern, "")
+            row[response.table.cols[index].label.replace(pattern, "").trim()] = item.v
+
           
           #row[col] = item.v;
           else unless item.v is ""
@@ -67,10 +70,11 @@ GoogleSpreadsheetsQuery = (filters, callback) ->
               previous = fieldName  if col >= that.colId2Int(field.startCol) or not previous?
 
             row[previous] = [] if !row[previous]?
-            row[previous].push response.table.cols[index].label.replace(previous + " ", "")
-
+            row[previous].push response.table.cols[index].label.replace(previous + " ", "").replace(pattern, "").trim();
+                
         fields = _.keys(row) if fields is undefined
         _.each row, (val, key) ->
+          val = "http://" + val if key is "Website" and val.indexOf("http") is -1 and val isnt "N/A"
           arrRow[fields.indexOf(key)] = val
         
         # Filling arr for first time

@@ -4,7 +4,7 @@ query = void 0;
 
 tab = void 0;
 
-rev = 0.18;
+rev = 0.19;
 
 activeTab = void 0;
 
@@ -26,7 +26,6 @@ window.onload = function() {
   MQ.init(queries);
   filters = new Filters();
   data = locache.get("blueGuideData");
-  data = null;
   locache.set("blueGuideData", data);
   filters.draw("#filters", "#showFilters");
   if ((data != null) && (data.rev != null) && data.rev === rev) {

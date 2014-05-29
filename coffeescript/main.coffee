@@ -1,6 +1,6 @@
 query = undefined
 tab = undefined
-rev = 0.18
+rev = 0.19
 activeTab = undefined
 window.onload = ->
 
@@ -19,7 +19,7 @@ window.onload = ->
   # Add filters
   filters = new Filters()
   data = locache.get("blueGuideData")
-  data = null
+  #data = null
   locache.set("blueGuideData", data)
   filters.draw "#filters", "#showFilters"
 
@@ -40,6 +40,7 @@ window.onload = ->
       locache.set "blueGuideData", data
       query = new JsonQuery "body", data
     
+
   # Manually set the map height with JS (couldn't make this work with CSS)
   if window.responsive isnt "mobile" then $('.row-fluid>div').height $(window).height() - $('.navbar').height()
 
