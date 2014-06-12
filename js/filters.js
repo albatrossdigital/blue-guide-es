@@ -27,7 +27,7 @@ Filters = function() {
         }, {
           id: "advanced",
           collapsed: "collapsed",
-          title: "Filtros para búsqueda avanzada",
+          title: "Búsqueda avanzada",
           content: filters
         }
       ]
