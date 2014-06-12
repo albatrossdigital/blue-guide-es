@@ -134,7 +134,7 @@ Filters = ->
       options: ["Recién nacidos (0-3)", "Niños (3+)", "Adolescentes (13+)", "Adultos (18+)", "Personas de la tercera edad (65+)"]
 
     "Sectores de la población atendidos":
-      label: "Populations Served"
+      label: "Poblaciónes atendidos"
       type: "select"
       msg: "Seleccionar"
       startCol: "CB"
@@ -150,7 +150,7 @@ Filters = ->
       type: "select"
       msg: "Seleccionar"
       startCol: "CU"
-      options: ["Escala móvil de tarifas para Atención primaria", "Descuento por pagar en efectivo/a la hora de entrega de servicios", "Programa de Atención para Indigentes de Colorado (CICP)", "Se acepta Medicaid/CHP+", "Otros servicios de descuentos", "Abierto tarde / fines de semana", "¿Otros?"]
+      options: ["Escala móvil de tarifas para Atención primaria", "Descuento por pagar en efectivo/a la hora de entrega de servicios", "Programa de Atención para Indigentes de Colorado (CICP)", "Se acepta Medicaid/CHP+", "Otros servicios de descuentos", "Abierto tarde / Fines de semana"]
 
   @displayFields = [
     label: "Horas"
