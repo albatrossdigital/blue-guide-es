@@ -181,7 +181,7 @@ Filters = function() {
       label: "Abierto a",
       col: "Area or Population Served"
     }, {
-      label: "Población atendidos",
+      label: "Poblaciones atendidas",
       col: "Sectores de la población atendidos"
     }, {
       label: "Idiomas",
