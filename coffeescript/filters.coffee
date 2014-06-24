@@ -87,9 +87,9 @@ Filters = ->
     title: "Salud General"
     color: "green"
     icon: "icon-generalhealth"
-    services: ["Administración de casos", "Atención primaria", "Salud de la mujer", "Salud del niño", "Atención para adolecentes", "Inmunizaciones", "Gestión de enfermedades crónicas", "Pruebas Tratamiento y Prevención de ITS", "Tratamiento y cuidados para SIDA/VIH", "Atención médica para veteranos", "Servicios de salud para personas LGBT"]
+    services: ["Administración de casos", "Atención primaria", "Salud de la mujer", "Salud del niño", "Atención para adolecentes", "Inmunizaciones", "Gestión de enfermedades crónicas", "Pruebas, Tratamiento y Prevención de ITS", "Tratamiento y cuidados para SIDA/VIH", "Atención médica para veteranos", "Servicios de salud para personas LGBT"]
   ,
-    title: "Salud mental/cognitivo-conductual"
+    title: "Salud mental/conductual"
     color: "purple"
     icon: "icon-alltypes"
     services: ["Tratamiento para el abuso de estupefacientes y alcohol", "Atención para la salud mental/conductal"]
@@ -119,13 +119,13 @@ Filters = ->
       type: "select"
       msg: "Seleccionar"
       startCol: "Y"
-      options: ["Centro de Salud Comunitario (CHC) / Centro de Salud Aprobado por el Gobierno Federal (FQHC) ","Clínica de Último Recurso Comunitaria","Departamento de Salud Pública o Enfermería Pública","Clínicas Médicas Rurales (RHC)","Centro de Salud Escolar (SBHC)","Agencia de Servicios Sociales","Asistencia con Solicitudes de Medicaid/CHP+","Asistencia con Connect for Health Colorado ","Clínica WIC","Clínica en Pediatría, HCP","Clínica de Planned Parenthood","Centro de Salud para los Veteranos","Clínica Comunitaria de Salud Mental","Clínica Dental Comunitaria","Clínica Oculista Comunitaria","Hospital de Acceso Crítico","Departamento de Urgencias","Programa de Atención para Indigentes de Colorado (CICP)","Junta de Enfoque Comunal (CCB)","Programa Residencial","Organización Voluntaria de Salud","Clínica para Migrantes","Clínica para Refugiados","Centro para la Vida Autónoma en el Hogar","Organización de Servicios para el SIDA (ASO)"," Otras clínicas comunitarias","Otra clínica dental","Otra Organización Comunitaria"]
+      options: ["Centro de Salud Comunitario (CHC) / Centro de Salud Aprobado por el Gobierno Federal (FQHC) ","Clínica de Último Recurso Comunitaria","Departamento de Salud Pública o Enfermería Pública","Clínicas Médicas Rurales (RHC)","Centro de Salud Escolar (SBHC)","Agencia de Servicios Sociales","Asistencia con Solicitudes de Medicaid/CHP+","Asistencia con Connect for Health Colorado ","Clínica WIC","Clínica en Pediatría, HCP","Clínica de Planned Parenthood","Centro de Salud para los Veteranos","Clínica Comunitaria de Salud Mental","Clínica Dental Comunitaria","Clínica Oculista Comunitaria","Hospital de Acceso Crítico","Departamento de Urgencias","Programa de Atención para Indigentes de Colorado (CICP)","Junta de Enfoque Comunal (CCB)","Programa Residencial","Organización Voluntaria de Salud","Clínica para Migrantes","Clínica para Refugiados","Centro para la Vida Autónoma en el Hogar","Organización de Servicios para el SIDA (ASO)"," Otras clínicas comunitarias","Otra clínica dental","Otra clínica de salud mental", "Otra Organización Comunitaria"]
 
     "Servicios ofrecidos":
       type: "select"
       msg: "Seleccionar"
       startCol: "BB"
-      options: ["Atención primaria", "Atención Dental", "Salud ocular", "Salud mental/cognitivo-conductual", "Salud de la mujer", "Salud del niño", "Atención para adolecentes", "Servicios diurnos para adultos", "Servicios auxiliares de apoyo familiar", "Tratamiento para el abuso de estupefacientes y alcohol", "Administración de casos", "Gestión de enfermedades crónicas", "Tratamiento y cuidados para SIDA/VIH", "Pruebas Tratamiento y Prevención de ITS", "Atención médica para veteranos", "Atención médica para personas con discapacidades o necesidades especiales", "Servicios de salud para personas LGBT", "Inmunizaciones", "Ayuda con inscripción en Medicaid", "Ayuda con inscripción en Connect for Health Colorado", "Otro"]
+      options: ["Atención primaria", "Atención Dental", "Salud ocular", "Salud mental/cognitivo-conductual", "Salud de la mujer", "Salud del niño", "Atención para adolecentes", "Servicios diurnos para adultos", "Servicios auxiliares de apoyo familiar", "Tratamiento para el abuso de estupefacientes y alcohol", "Administración de casos", "Gestión de enfermedades crónicas", "Tratamiento y cuidados para SIDA/VIH", "Pruebas, Tratamiento y Prevención de ITS", "Atención médica para veteranos", "Atención médica para personas con discapacidades o necesidades especiales", "Servicios de salud para personas LGBT", "Inmunizaciones", "Ayuda con inscripción en Medicaid", "Ayuda con inscripción en Connect for Health Colorado", "Otro"]
 
     "Categorías de edades atendidas":
       type: "select"
@@ -133,8 +133,8 @@ Filters = ->
       startCol: "BW"
       options: ["Recién nacidos (0-3)", "Niños (3+)", "Adolescentes (13+)", "Adultos (18+)", "Personas de la tercera edad (65+)"]
 
-    "Sectores de la población atendidos":
-      label: "Poblaciónes atendidos"
+    "Sectores de la población atendidas":
+      label: "Poblaciónes atendidas"
       type: "select"
       msg: "Seleccionar"
       startCol: "CB"
@@ -168,7 +168,7 @@ Filters = ->
     col: "Area or Population Served"
   ,
     label: "Poblaciones atendidas"
-    col: "Sectores de la población atendidos"
+    col: "Sectores de la población atendidas"
   ,
     label: "Idiomas"
     col: "Idiomas hablados"
